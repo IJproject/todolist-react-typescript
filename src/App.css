@@ -1,0 +1,33 @@
+#container {
+    width: 90%;
+    margin: 40px auto;
+}
+
+#memos {
+    padding: 20px 8%;
+    border: 6px double darkcyan;
+}
+
+#memo-title {
+    text-align: center;
+    margin: 24px auto 40px;
+}
+
+.memo {
+    display: flex;
+    padding: 16px 24px;
+    border-top: 1px solid slategray;
+}
+
+.content {
+    margin-left: 12px;
+}
+
+#complete-button {
+    color: white;
+    font-size: 1.1rem;
+    margin: 32px auto 20px;
+    padding: 8px;
+    background-color: darkcyan;
+    text-align: center;
+}

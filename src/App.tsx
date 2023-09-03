@@ -29,29 +29,39 @@ function App() {
     ]
     const [memos, setMemos] = useState<Memo[]>(sample)
 
+    const checkMemo = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedId: number = +event.target.value
+        // const copyMemos: Memo[] = memos
+        const selectedMemo = memos.find(memo => memo.id === selectedId)
+        if(selectedMemo){
+            selectedMemo.isChecked = !selectedMemo.isChecked
+        }
+    }
+
     const completeTask = (): void => {
         setMemos(memos.filter(memo => memo.isChecked === false))
     }
 
     return (
-        <>
+        <div id='container'>
             <h1>Todoリスト</h1>
             <Search />
-            <div>
-                <div>
+            <div id='memos'>
+                <div id="memo-part">
+                    <h2 id="memo-title">〜月〜日のやることリスト</h2>
                     {memos.map((memo) => {
                         return (
-                            <div key={memo.id}>
-                                <input type="checkbox" defaultChecked={memo.isChecked}></input>
-                                <div>{memo.content}</div>
+                            <div key={memo.id} className='memo'>
+                                <input type="checkbox" defaultChecked={memo.isChecked} onChange={checkMemo} value={memo.id} id={'content' + memo.id} className='checkbox' />
+                                <label className='content' htmlFor={'content' + memo.id}>{memo.content}</label>
                             </div>
                         )
                     })}
                 </div>
-                <div onClick={completeTask}>完了</div>
+                <div onClick={completeTask} id="complete-button">完了</div>
             </div>
             <Create />
-        </>
+        </div>
     )
 }
 
