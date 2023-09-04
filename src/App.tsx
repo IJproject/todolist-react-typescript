@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 
-import Search from './compenents/Search'
 import Create from './compenents/Create'
 
 type Memo = {
@@ -45,7 +44,6 @@ function App() {
     return (
         <div id='container'>
             <h1>Todoリスト</h1>
-            <Search />
             <div id='memos'>
                 <div id="memo-part">
                     <h2 id="memo-title">〜月〜日のやることリスト</h2>
